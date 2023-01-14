@@ -1,26 +1,4 @@
-<h2>User info</h2>
-<%= image_tag @user.get_profile_image(100,100) %><br>
-  <table>
-    <tbody>
-      <tr>name</tr>
-      <tr><%= @user.name %></tr><br>
-      <tr>introduction</tr>
-      <tr><%= @user.introduction %></tr>
-    </tbody>
-  </table>
-
-  <div><%= link_to "edit",edit_user_path %></div>
-
-  <h2>New book</h2>
-  <%= form_with model: @book do |f| %>
-    <label>Title</label><br>
-    <%= f.text_field :title %><br>
-    <label>Opinion</label><br>
-    <%= f.text_area :body %><br>
-
-    <%= f.submit 'Create Book' %>
-  <% end %>
-
+<%= render 'home', user: @user , book: @book %>
   <h2>Books</h2>
     <table>
       <thead>
