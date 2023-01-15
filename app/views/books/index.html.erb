@@ -1,8 +1,18 @@
+<div class="error_explanation">
+<% if @book.errors.any? %>
+  <h3><%= @book.errors.count %>errors prohibited this obj from being saved:</h3>
+    <% @book.errors.full_messages.each do |message| %>
+    <ul>
+      <li><%= message %></li>
+    </ul>
+    <% end %>
+<% end %>
+</div>
 <%= render 'users/home', user: @user , book: @book %>
+<div class="col-md-8 offset-md-1">
+  <h2>Books</h2>
 
-<h2>Bookers</h2>
-
-  <table>
+  <table class="table table-hover table-inverse">
     <thead>
       <tr>
         <th></th>
@@ -14,11 +24,15 @@
     <tbody>
 <% @books.each do |books| %>
       <tr>
-        <td><%= image_tag books.user.get_profile_image(100,100) %></td>
+        <td>
+          <%= link_to user_path(books.user.id) do %>
+          <%= image_tag books.user.get_profile_image(100,100) %></td>
+          <% end %>
         <td><%= link_to "#{books.title}",book_path(books.id)  %></td>
         <td><%= books.body %></td>
       </tr>
 <% end %>
     </tbody>
   </table>
+</div>
 

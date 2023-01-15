@@ -1,7 +1,8 @@
 <%= render 'home', user: @user , book: @book %>
-<h2>Users</h2>
+<div class="col-md-8 offset-md-1">
+  <h2>Users</h2>
 
-  <table>
+  <table class="table">
     <thead>
       <tr>
         <th>image</th>
@@ -19,3 +20,4 @@
     </tbody>
     <% end %>
   </table>
+</div>
